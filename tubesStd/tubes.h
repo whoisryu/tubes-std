@@ -4,18 +4,19 @@
 #define info(P) (P)->info
 #define next(P) (P)->next
 #define first(L) ((L).first)
-#define relasi(P) (P)->relasi
-#define parent(P) (P)->parent
-#define child(P) (P)->child
+#define last(L) ((L).last)
+#define toParent(P)  (P)->toParent
+#define toChild(P)  (P)->toChild
+
 #include <iostream>
 
 using namespace std;
 
 typedef string infotype;
 
-typedef elmParent *adrParent;
-typedef elmRelasi *adrRelasi;
-typedef elmChild *adrChild;
+typedef struct elmParent *adrParent;
+typedef struct elmRelasi *adrRelasi;
+typedef struct elmChild *adrChild;
 
 struct elmParent{
     infotype info;
@@ -33,14 +34,18 @@ struct elmChild {
 
 struct listParent{
     adrParent first;
+    adrParent last;
 };
 struct listRelasi{
     adrRelasi first;
+    adrRelasi last;
 };
 struct listChild{
     adrChild first;
+    adrChild last;
 };
 
+adrParent findParent(listParent L, infotype nama);
 
 void createListParent(listParent &L);
 void createListRelasi(listRelasi &L);
@@ -54,4 +59,6 @@ void addParent(listParent &L, adrParent P);
 void addChild(listChild &L, adrChild P);
 void addRelasi(listRelasi &L, adrRelasi P);
 
+void showAllChild(listChild LC, listRelasi LR , listParent LP);
+void showParent(listParent L);
 #endif // TUBES_H_INCLUDED
