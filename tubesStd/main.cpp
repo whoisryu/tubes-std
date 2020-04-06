@@ -27,32 +27,21 @@ do{
     cout<<"MENU"<<endl;
     cout<<"1. Tambah Data"<<endl;
     cout<<"2. Tampilkan Semua Furniture"<<endl;
+    cout<<"3. Hapus Pengrajin"<<endl;
     cout<<"0. Keluar"<<endl;
     cout<<"Pilih Menu: ";
     cin>>menu;
 
     switch(menu){
     case 1:
-        cout<<"Masukkan Nama Furniture: ";
-        cin>>fur;
-        adrC = newElmchild(fur);
-        addChild(LC, adrC);
+        {
+            cout<<"Masukkan Nama Furniture: ";
+            cin>>fur;
+            adrC = newElmchild(fur);
+            addChild(LC, adrC);
 
-        cout<<"Masukkan Nama Pengrajin: ";
-        cin>>org;
-        if(findParent(LP, org) == NULL){
-            adrP = newElmParent(org);
-            addParent(LP, adrP);
-            addRelasi(LR, newElmRelasi(adrP, adrC));
-        }else{
-            adrR = newElmRelasi(findParent(LP, org), adrC);
-            addRelasi(LR, adrR);
-        }
-
-        cout<<"ada lagi? (Y/N)";
-        cin>>yn;
-        if( yn == "Y"){
-            cout<<"Masukkan Nama Pengrajin: "; cin>>org;
+            cout<<"Masukkan Nama Pengrajin: ";
+            cin>>org;
             if(findParent(LP, org) == NULL){
                 adrP = newElmParent(org);
                 addParent(LP, adrP);
@@ -61,13 +50,35 @@ do{
                 adrR = newElmRelasi(findParent(LP, org), adrC);
                 addRelasi(LR, adrR);
             }
+
+            cout<<"ada lagi? (Y/N)";
+            cin>>yn;
+            if( yn == "Y" || yn == "y"){
+                cout<<"Masukkan Nama Pengrajin: "; cin>>org;
+                if(findParent(LP, org) == NULL){
+                    adrP = newElmParent(org);
+                    addParent(LP, adrP);
+                    addRelasi(LR, newElmRelasi(adrP, adrC));
+                }else{
+                    adrR = newElmRelasi(findParent(LP, org), adrC);
+                    addRelasi(LR, adrR);
+                }
+            }
         }
         break;
     case 2:
-        cout<<endl;
-        showAllChild(LC, LR, LP);
+        {
+            cout<<endl;
+            showAllChild(LC, LR, LP);
+        }
         break;
 
+    case 3:
+        {
+            cout<<"Nama Pengrajin : ";
+            cin>>org;
+            deleteParent(LR, org);
+        }
     }
 cout<<endl;
 cout<<endl;

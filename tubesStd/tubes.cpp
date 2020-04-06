@@ -25,10 +25,12 @@ void createListParent(listParent &L){
     first(L) = NULL;
     last(L) = NULL;
 }
+
 void createListRelasi(listRelasi &L){
     first(L) = NULL;
     last(L) = NULL;
 }
+
 void createListChild(listChild &L){
     first(L) = NULL;
     last(L) = NULL;
@@ -40,6 +42,7 @@ adrParent newElmParent(infotype nama){
     next(P) = NULL;
     return P;
 }
+
 adrRelasi newElmRelasi(adrParent Parent, adrChild Child){
     adrRelasi P = new elmRelasi;
     toParent(P) = Parent;
@@ -47,6 +50,7 @@ adrRelasi newElmRelasi(adrParent Parent, adrChild Child){
     next(P) = NULL;
     return P;
 }
+
 adrChild newElmchild(infotype barang){
     adrChild P = new elmChild;
     info(P) = barang;
@@ -82,11 +86,47 @@ void addRelasi(listRelasi &L, adrRelasi P){
     }
 }
 
+void deleteParent(listRelasi &L, infotype P) {
+    adrRelasi R = first(L);
+    while (info(toParent(R)) == P) {
+        if (R == first(L)) {
+                first(L) = next(R);
+                next(R) = NULL;
+            }
+            R = first(L);
+    }
+    R = first(L);
+    while (R != NULL) {
+        if (info(toParent(R)) == P) {
+            if (R == first(L) && R == last(L)) {
+                first(L) = NULL;
+                last(L) = NULL;
+            } else if (R == last(L)) {
+                adrRelasi A = first(L);
+                while (next(next(A)) != NULL) {
+                    A = next(A);
+                }
+                last(L) = A;
+                next(A) = NULL;
+            } else {
+                adrRelasi B = first(L);
+                while (next(B) != R) {
+                    B = next(B);
+                }
+                next(B) = next(R);
+                next(R) = NULL;
+            }
+        }
+        R = next(R);
+    }
+}
+
 void showAllChild(listChild LC, listRelasi LR , listParent LP){
     adrChild C = first(LC);
 
     while(C != NULL){
-    cout<<"Barang: ";
+
+        cout<<"Barang: ";
         cout<<info(C)<<", "<<endl;
         cout<<"Pengrajin: ";
         adrRelasi R = first(LR);
