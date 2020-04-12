@@ -88,13 +88,10 @@ void addRelasi(listRelasi &L, adrRelasi P){
 
 void deleteParent(listRelasi &L, infotype P) {
     adrRelasi R = first(L);
-    while (info(toParent(R)) == P) {
         if (R == first(L)) {
                 first(L) = next(R);
                 next(R) = NULL;
             }
-            R = first(L);
-    }
     R = first(L);
     while (R != NULL) {
         if (info(toParent(R)) == P) {
@@ -122,22 +119,28 @@ void deleteParent(listRelasi &L, infotype P) {
 }
 
 void showAllChild(listChild LC, listRelasi LR , listParent LP){
-    adrChild C = first(LC);
-
-    while(C != NULL){
-
-        cout<<"Barang: ";
-        cout<<info(C)<<", "<<endl;
+    adrRelasi R = first(LR);
+    while(R != NULL){
+        cout<<"Barang: "<<info(toChild(R))<<endl;
         cout<<"Pengrajin: ";
-        adrRelasi R = first(LR);
-        while(R != NULL){
-            if(toChild(R) == C){
-                cout<<info(toParent(R))<<", ";
+        if(next(R) != NULL){
+            if(toChild(R) != toChild(next(R))){
+                cout<<info(toParent(R))<<endl;
+                R = next(R);
+            }else{
+                adrRelasi R2 = next(R);
+                while(toChild(R2) != toChild(R) && R2 != NULL){
+                    R2 = next(R2);
+                }
+                if(toChild(R2) == toChild(R)){
+                    cout<<info(toParent(R))<<", "<<info(toParent(R2))<<endl;
+                    R = next(R2);
+                }
             }
+        }else{
+            cout<<info(toParent(R))<<endl;
             R = next(R);
         }
-        cout<<endl;
-        C = next(C);
     }
 }
 
