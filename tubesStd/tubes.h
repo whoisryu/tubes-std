@@ -61,6 +61,7 @@ void addRelasi(listRelasi &L, adrRelasi P);
 
 void deleteParent(listRelasi &L, infotype P);
 
-void showAllChild(listChild LC, listRelasi LR , listParent LP);
+void showAllChild(listRelasi LR);
+void showChild2(listChild LC, listRelasi LR);
 void showParent(listParent L);
 #endif // TUBES_H_INCLUDED

@@ -28,10 +28,11 @@ do{
     cout<<"1. Tambah Data"<<endl;
     cout<<"2. Tampilkan Semua Furniture"<<endl;
     cout<<"3. Hapus Pengrajin"<<endl;
+    cout<<"4. Tampilkan Furnitur Yang dikerjan 2 Pengrajin"<<endl;
     cout<<"0. Keluar"<<endl;
     cout<<"Pilih Menu: ";
     cin>>menu;
-    if(menu > 3){
+    if(menu > 4){
         cout<<"Masukkan angka menu dengan benar"<<endl;
     }else{
     switch(menu){
@@ -71,7 +72,7 @@ do{
     case 2:
         {
             cout<<endl;
-            showAllChild(LC, LR, LP);
+            showAllChild(LR);
         }
         break;
 
@@ -82,6 +83,10 @@ do{
             deleteParent(LR, org);
         }
         break;
+    case 4:
+        {
+            showChild2(LC,LR);
+        }
     }
 }
 cout<<endl;

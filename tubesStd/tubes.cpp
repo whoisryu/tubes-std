@@ -118,7 +118,7 @@ void deleteParent(listRelasi &L, infotype P) {
     }
 }
 
-void showAllChild(listChild LC, listRelasi LR , listParent LP){
+void showAllChild(listRelasi LR){
     adrRelasi R = first(LR);
     if(R == NULL){
         cout<<"Data Kosong"<<endl;
@@ -148,6 +148,45 @@ void showAllChild(listChild LC, listRelasi LR , listParent LP){
     }
 }
 
+void showChild2(listChild LC, listRelasi LR){
+    adrChild C = first(LC);
+    int i;
+    while(C != NULL){
+        adrRelasi R = first(LR);
+        i = 0;
+        while(R != NULL && i != 2){
+            if(C == toChild(R)){
+                i++;
+            }
+            R = next(R);
+        }
+        if(i == 2){
+           cout<<"Furnitur: "<<info(C)<<endl;
+        }
+        C = next(C);
+    }
+
+    adrRelasi r1 = first(LR);
+    if(next(r1) == NULL){
+        cout<<"tidak ada furnitur yang dikerjakan oleh 2 pengrajin"<<endl;
+    }else{
+        int jml;
+        while(r1 != NULL){
+            jml = 0;
+            adrRelasi r2 = first(LR);
+            while(r2 != NULL){
+                if(toChild(r2) == toChild(r1)){
+                    jml++;
+                }
+                r2 = next(r2);
+             }
+             r1 = next(r1);
+        }
+        if(jml < 2){
+            cout<<"tidak ada furnitur yang dikerjakan oleh 2 pengrajin"<<endl;
+        }
+    }
+}
 
 void showParent(listParent L){
     adrParent P = first(L);
