@@ -31,7 +31,9 @@ do{
     cout<<"0. Keluar"<<endl;
     cout<<"Pilih Menu: ";
     cin>>menu;
-
+    if(menu > 3){
+        cout<<"Masukkan angka menu dengan benar"<<endl;
+    }else{
     switch(menu){
     case 1:
         {
@@ -79,7 +81,9 @@ do{
             cin>>org;
             deleteParent(LR, org);
         }
+        break;
     }
+}
 cout<<endl;
 cout<<endl;
 }while(menu != 0);

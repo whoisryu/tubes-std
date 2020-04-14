@@ -107,7 +107,7 @@ void deleteParent(listRelasi &L, infotype P) {
                 next(A) = NULL;
             } else {
                 adrRelasi B = first(L);
-                while (next(B) != R) {
+                while (next(next(B)) != R) {
                     B = next(B);
                 }
                 next(B) = next(R);
@@ -120,6 +120,9 @@ void deleteParent(listRelasi &L, infotype P) {
 
 void showAllChild(listChild LC, listRelasi LR , listParent LP){
     adrRelasi R = first(LR);
+    if(R == NULL){
+        cout<<"Data Kosong"<<endl;
+    }
     while(R != NULL){
         cout<<"Barang: "<<info(toChild(R))<<endl;
         cout<<"Pengrajin: ";
@@ -141,6 +144,7 @@ void showAllChild(listChild LC, listRelasi LR , listParent LP){
             cout<<info(toParent(R))<<endl;
             R = next(R);
         }
+        cout<<endl;
     }
 }
 
