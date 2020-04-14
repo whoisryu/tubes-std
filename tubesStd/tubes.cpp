@@ -88,7 +88,7 @@ void addRelasi(listRelasi &L, adrRelasi P){
 
 void deleteParent(listRelasi &L, infotype P) {
     adrRelasi R = first(L);
-        if (R == first(L)) {
+        if (P == info(toParent(R))) {
                 first(L) = next(R);
                 next(R) = NULL;
             }
