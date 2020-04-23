@@ -8,7 +8,9 @@
 #define toParent(P)  (P)->toParent
 #define toChild(P)  (P)->toChild
 
+#include <typeinfo>
 #include <iostream>
+#include<limits>
 
 using namespace std;
 
@@ -46,7 +48,7 @@ struct listChild{
 };
 
 adrParent findParent(listParent L, infotype nama);
-
+bool findChild(listChild L, infotype nama);
 void createListParent(listParent &L);
 void createListRelasi(listRelasi &L);
 void createListChild(listChild &L);
@@ -60,8 +62,20 @@ void addChild(listChild &L, adrChild P);
 void addRelasi(listRelasi &L, adrRelasi P);
 
 void deleteParent(listRelasi &L, infotype P);
+void deleteChild(listRelasi &L, infotype P);
 
+void deleteFirstParent(listParent &L, adrParent &p);
+void deleteLastParent(listParent &L, adrParent &p);
+void deleteAfterPArent(listParent &L, adrParent prec, adrParent &p);
+void hapusParent(listParent &L, adrParent &p);
+
+int countFurniture(adrParent P, listRelasi L);
+
+void showMax(listParent LP, listRelasi LR);
 void showAllChild(listRelasi LR);
 void showChild2(listChild LC, listRelasi LR);
+void showPengrajinColab(listRelasi L);
 void showParent(listParent L);
+
+bool isValid(int menu, int num);
 #endif // TUBES_H_INCLUDED

@@ -1,34 +1,18 @@
 # depslib dependency file v1.0
-1586083314 source:d:\kuliah\semester2\structuredata\tubes\tubes-std\tubesstd\main.cpp
+1587657793 source:d:\kuliah\semester2\structuredata\tubes-std\tubesstd\main.cpp
 	<iostream>
+	<typeinfo>
+	<limits>
 	"tubes.h"
 
-1586079768 d:\kuliah\semester2\structuredata\tubes\tubes-std\tubesstd\tubes.h
+1587656430 d:\kuliah\semester2\structuredata\tubes-std\tubesstd\tubes.h
+	<typeinfo>
 	<iostream>
+	<limits>
 
-1586083489 source:d:\kuliah\semester2\structuredata\tubes\tubes-std\tubesstd\tubes.cpp
+1587657760 source:d:\kuliah\semester2\structuredata\tubes-std\tubesstd\tubes.cpp
 	<iostream>
+	<typeinfo>
 	"tubes.h"
-
-1586190334 source:d:\kuliah_tel-u\tubesstd\tubes-std\tubesstd\main.cpp
-	<iostream>
-	"tubes.h"
-
-1586190289 d:\kuliah_tel-u\tubesstd\tubes-std\tubesstd\tubes.h
-	<iostream>
-
-1586190221 source:d:\kuliah_tel-u\tubesstd\tubes-std\tubesstd\tubes.cpp
-	<iostream>
-	"tubes.h"
-
-1586832429 source:d:\kuliah\semester2\structuredata\tubes-std\tubesstd\main.cpp
-	<iostream>
-	"tubes.h"
-
-1586831893 d:\kuliah\semester2\structuredata\tubes-std\tubesstd\tubes.h
-	<iostream>
-
-1586846283 source:d:\kuliah\semester2\structuredata\tubes-std\tubesstd\tubes.cpp
-	<iostream>
-	"tubes.h"
+	<limits>
 
